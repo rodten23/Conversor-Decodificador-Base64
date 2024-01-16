@@ -4,13 +4,14 @@ import base64
 imagem = './img/porquinho-da-india-1536x1024.webp'
 
 def separar_nome_extensao(caminho_completo):
-    caminho, extensao = os.path.splitext(caminho_completo)
-    nome_arquivo = caminho.split('/')[-1]
-    print(caminho, '===', nome_arquivo, '===', extensao)
-
+    global nome_arquivo
+    caminho_sem_extensao = os.path.splitext(caminho_completo)[0]
+    nome_arquivo = caminho_sem_extensao.split('/')[-1]
+    return nome_arquivo
+    
 separar_nome_extensao(imagem)
 
-saida = './saidas/codificado3.txt'
+saida = './saidas/' + nome_arquivo + '.txt'
 
 with open(imagem, 'rb') as file_binary:
     data = file_binary.read()
