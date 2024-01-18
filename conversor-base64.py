@@ -1,23 +1,16 @@
-import os
+import separar_nome_extensao
 import base64
 
-imagem = './img/porquinho-da-india-1536x1024.webp'
+arquivo_a_converter = './img/vida-simples-significativa-rotina.jpg'
 
-def separar_nome_extensao(caminho_completo):
-    global nome_arquivo
-    caminho_sem_extensao = os.path.splitext(caminho_completo)[0]
-    nome_arquivo = caminho_sem_extensao.split('/')[-1]
-    return nome_arquivo
-    
-separar_nome_extensao(imagem)
+nome_arquivo, extensao = separar_nome_extensao.arq_ext(arquivo_a_converter)
 
-saida = './saidas/' + nome_arquivo + '.txt'
+saida_base64 = './saidas/' + nome_arquivo + extensao + '.base64' + '.txt'
 
-with open(imagem, 'rb') as file_binary:
-    data = file_binary.read()
-    encoded = base64.b64encode(data)
-    encoded_utf8 = encoded.decode('utf-8')
-    print(encoded_utf8)
+with open(arquivo_a_converter, 'rb') as arquivo_binario:
+    dados = arquivo_binario.read()
+    codificado = base64.b64encode(dados)
+    codificado_utf8 = codificado.decode('utf-8')
 
-with open(saida, 'wt') as file:    
-    file.write(encoded_utf8)
+with open(saida_base64, 'wt') as base64_gerado:    
+    base64_gerado.write(codificado_utf8)
