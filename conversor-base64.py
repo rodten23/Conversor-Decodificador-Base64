@@ -1,7 +1,7 @@
 import separar_nome_extensao
 import base64
 
-arquivo_a_converter = './img/vida-simples-significativa-rotina.jpg'
+arquivo_a_converter = './originais/vida-simples-significativa-rotina.jpg'
 
 nome_arquivo, extensao = separar_nome_extensao.arq_nome_ext(arquivo_a_converter)
 
