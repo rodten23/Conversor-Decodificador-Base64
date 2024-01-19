@@ -3,7 +3,7 @@ import base64
 
 arquivo_a_converter = './img/vida-simples-significativa-rotina.jpg'
 
-nome_arquivo, extensao = separar_nome_extensao.arq_ext(arquivo_a_converter)
+nome_arquivo, extensao = separar_nome_extensao.arq_nome_ext(arquivo_a_converter)
 
 saida_base64 = './saidas/' + nome_arquivo + extensao + '.base64' + '.txt'
 
